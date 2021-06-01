@@ -1,7 +1,6 @@
-import './App.css';
+import './App.scss';
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react';
-import { navigate } from '@reach/router';
 
 function App() {
   const [socket] = useState(() => io(':8000'));
@@ -48,41 +47,55 @@ function App() {
     // window.location.reload();
   }
 
-
   return (
     <div className="App">
       {
         !nameSet ?
         <div id="setUserName">
-          <form onSubmit={submitUserName}>
-            <label htmlFor="userName">Enter a Username: </label>
-            <input type="text" name="userName" onChange={e => setUserName(e.target.value)} value={userName}/>
-            <input type="submit" value="Set Username" />
+          <form onSubmit={submitUserName} id>
+            <h1>Welcome to Fast Chat</h1><br></br>
+            <input type="text" className="form-control" name="userName" onChange={e => setUserName(e.target.value)} value={userName} placeholder="Enter a Username"/><br></br>
+            <input type="submit" className="btn btn-outline-dark" value="Set Username" />
           </form>
         </div>
         :
         !roomJoined ?
         <div id="joinRoom">
           <form onSubmit={joinRoom}>
-            <label htmlFor="chatRoom">Enter a Chat Room: </label>
-            <input type="text" name="chatRoom" onChange={e => setChatRoom(e.target.value)} value={chatRoom}/>
-            <input type="submit" value="Join" />
+            <h1>Join a Room</h1><br></br>
+            <input type="text" className="form-control" name="chatRoom" onChange={e => setChatRoom(e.target.value)} value={chatRoom} placeholder="Enter Room Name"/><br></br>
+            <input type="submit" className="btn btn-outline-dark" value="Join" />
           </form>
         </div>
         :
-        <div id="sendMessage">
-          <button type="button" className="btn btn-lg btn-warning" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
-          <form onSubmit={submitMessage}>
-            <label htmlFor="message">Message: </label>
-            <input type="text" name="message" onChange={e => setMessage(e.target.value) } value={message}/>
-            <input type="submit" value="Send" />
-          </form>
+        <div>
+          <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
+          <div id="sendMessage">
+            <form onSubmit={submitMessage}>
+              <h1>{chatRoom}</h1><br></br>
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" name="message" onChange={e => setMessage(e.target.value) } value={message} placeholder="Message"/><br></br>
+                <div className="input-group-append">
+                  <input type="submit"className="btn btn-outline-dark" value="Send"/>
+                </div>
+              </div>
+            </form>
+            <div id="chatBox">
+              <div id="messages">
+                  {
+                    chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
+                  }
+              </div>
+            </div>
+          </div>
         </div>
       }
 
-      {
-        chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
-      }
+      {/* <div id="messages">
+        {
+          chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
+        }
+      </div> */}
     </div>
   );
 }
