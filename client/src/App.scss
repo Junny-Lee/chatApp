@@ -42,7 +42,7 @@
 
     input[type=submit]{
       width: 70%;
-      background-color: #e0cfdd;
+      background-color: rgb(235, 235, 235);
       margin-top:  0.5rem;
       font-family: Trebuchet;
       font-size: 110%;
@@ -51,7 +51,7 @@
     }
 
     input[type=submit]:hover{
-      background-color: rgb(235, 235, 235);
+      background-color: #e0cfdd;
     }
   }
 }
@@ -92,7 +92,7 @@
     }
 
     input[type=submit]{
-      background-color: #e0cfdd;
+      background-color: rgb(235, 235, 235);
       // margin-top:  0.5rem;
       font-family: Trebuchet;
       font-size: 110%;
@@ -101,7 +101,7 @@
     }
 
     input[type=submit]:hover{
-      background-color: rgb(235, 235, 235);
+      background-color: #e0cfdd;
     }
   }
 }
@@ -111,10 +111,26 @@
   width: 90%;
   height: 60%;
   margin: auto;
+  overflow: auto;
 
   #messages{
     font-family: Trebuchet;
     font-size: 140%;
+    flex: initial;
+    display: table;
+
+    #message{
+      background-color: rgb(235, 235, 235);
+      margin-left: 6%;
+      border-radius: 11px;
+      // position: relative;
+      // padding: 6px 8px;
+      // margin: 4px 0;
+    }
+
+    #scrollPoint {
+      color: #e0cfdd;
+    }
   }
 
   /* width */

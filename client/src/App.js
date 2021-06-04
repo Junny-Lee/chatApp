@@ -11,6 +11,13 @@ function App() {
   const [userName, setUserName] = useState('');
   const [nameSet, setNameSet] = useState(false);
 
+  // const yourMessage = {
+  //   backgroundColor: "blue"
+  // }
+  // const othersMessage = {
+  //   backgroundColor: "white"
+  // }
+
   useEffect(() => {
 
     return () => socket.disconnect(true);
@@ -47,6 +54,11 @@ function App() {
     // window.location.reload();
   }
 
+  const updateScroll = () => {
+    var element = document.getElementById("chatBox");
+    element.scrollTop = element.scrollHeight;
+  }
+
   return (
     <div className="App">
       {
@@ -76,15 +88,46 @@ function App() {
               <div className="input-group mb-3">
                 <input type="text" className="form-control" name="message" onChange={e => setMessage(e.target.value) } value={message} placeholder="Message"/><br></br>
                 <div className="input-group-append">
-                  <input type="submit"className="btn btn-outline-dark" value="Send"/>
+                  <input type="submit"className="btn btn-outline-dark" value="Send" onClick={updateScroll}/>
                 </div>
               </div>
             </form>
             <div id="chatBox">
               <div id="messages">
                   {
-                    chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
+                    chatLog.map((message, i) => 
+                      // {
+                      //   message.userName == userName ?
+                      //   <p key={i} id="message" >
+                      //     You: { message.message}
+                      //   </p> :
+                      //   <p key={i} id="message">
+                      //     { message.userName } : { message.message}
+                      //   </p> 
+                      // }
+
+                      // <p key={i} id="message">
+                      //   {
+                      //     message.userName == userName ?
+                      //     "You" : 
+                      //     message.userName
+                      //   } : { message.message}
+                      // </p>
+
+                      <p key={i} id="message">
+                        {
+                          message.userName == userName ?
+                          "You" : 
+                          message.userName
+                        } : { message.message}
+                      </p>
+                    ) 
                   }
+                  <div class="left-point"></div>
+                  {/* {
+                    chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
+                  } */}
+                <div id="scrollPoint">...</div>
               </div>
             </div>
           </div>
