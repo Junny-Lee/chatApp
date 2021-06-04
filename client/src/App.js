@@ -119,7 +119,13 @@ function App() {
                           message.userName == userName ?
                           "You" : 
                           message.userName
-                        } : { message.message}
+                        }
+                        : { message.message}
+                        {/* {
+                          message.userName == userName ?
+                          "You" : 
+                          message.userName
+                        } : { message.message} */}
                       </p>
                     ) 
                   }
