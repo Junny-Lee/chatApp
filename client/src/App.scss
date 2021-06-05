@@ -121,7 +121,7 @@
     font-size: 140%;
     flex: initial;
     display: table;
-    width: 90%;
+    width: 100%;
     height: auto;
 
     #message{
@@ -129,6 +129,7 @@
       #yourMessage {
         background-color: #73b9ff;
         border-radius: 11px;
+        // padding-left: 15%;
       }
 
       #theirMessage {

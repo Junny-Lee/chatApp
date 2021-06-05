@@ -124,20 +124,9 @@ function App() {
                       //     message.userName
                       //   } : { message.message}
                       // </p>
-
-                      // <p key={i} id="message">
-                      //   {
-                      //     message.userName == userName ?
-                      //     "You" : 
-                      //     message.userName
-                      //   } : { message.message}
-                      // </p>
                     ) 
                   }
-                  <div class="left-point"></div>
-                  {/* {
-                    chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
-                  } */}
+                  
                 <div id="scrollPoint">...</div>
               </div>
             </div>
