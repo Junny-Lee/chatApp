@@ -73,7 +73,7 @@
   }
 
   form {
-    padding-top: 8%;
+    padding-top: 3%;
 
     .input-group.mb-3{
       width: 70%;
@@ -86,9 +86,11 @@
       background-color: #e0cfdd;
       padding: 0.5rem;
       outline: 0.07rem solid black;
+      // border-radius: 8px;
       font-family: Trebuchet;
       font-size: 110%;
       color: black;
+      // height: 20%;
     }
 
     input[type=submit]{
@@ -108,8 +110,9 @@
 
 #chatBox {
   border: black 0.1rem solid;
-  width: 90%;
-  height: 60%;
+  border-radius: 10px;
+  // width: 90%;
+  height: 65%;
   margin: auto;
   overflow: auto;
 
@@ -120,12 +123,22 @@
     display: table;
 
     #message{
-      background-color: rgb(235, 235, 235);
+      // background-color: rgb(235, 235, 235);
       // margin-left: 6%;
-      border-radius: 11px;
+      // border-radius: 11px;
       // position: relative;
       // padding: 6px 8px;
       // margin: 4px 0;
+
+      #yourMessage {
+        background-color: #73b9ff;
+        border-radius: 11px;
+      }
+
+      #theirMessage {
+        background-color: rgb(235, 235, 235);
+        border-radius: 11px;
+      }
     }
 
     #scrollPoint {

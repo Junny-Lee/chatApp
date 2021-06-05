@@ -96,6 +96,17 @@ function App() {
               <div id="messages">
                   {
                     chatLog.map((message, i) => 
+                      <p key={i} id="message">
+                        {
+                          message.userName == userName ?
+                          <p id="yourMessage">
+                            You: { message.message}
+                          </p> : 
+                          <p id="theirMessage">
+                            { message.userName } : { message.message}
+                          </p> 
+                        }
+                      </p>
                       // {
                       //   message.userName == userName ?
                       //   <p key={i} id="message" >
@@ -114,19 +125,13 @@ function App() {
                       //   } : { message.message}
                       // </p>
 
-                      <p key={i} id="message">
-                        {
-                          message.userName == userName ?
-                          "You" : 
-                          message.userName
-                        }
-                        : { message.message}
-                        {/* {
-                          message.userName == userName ?
-                          "You" : 
-                          message.userName
-                        } : { message.message} */}
-                      </p>
+                      // <p key={i} id="message">
+                      //   {
+                      //     message.userName == userName ?
+                      //     "You" : 
+                      //     message.userName
+                      //   } : { message.message}
+                      // </p>
                     ) 
                   }
                   <div class="left-point"></div>
