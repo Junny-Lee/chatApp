@@ -1,6 +1,7 @@
 import './App.scss';
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react';
+// import ScrollButton from "./components/ScrollButton";
 
 function App() {
   const [socket] = useState(() => io(':8000'));
@@ -59,6 +60,10 @@ function App() {
     element.scrollTop = element.scrollHeight;
   }
 
+  const handleHome = e => {
+    window.location.reload();
+  }
+
   return (
     <div className="App">
       {
@@ -72,16 +77,24 @@ function App() {
         </div>
         :
         !roomJoined ?
-        <div id="joinRoom">
-          <form onSubmit={joinRoom}>
-            <h1>Join a Room</h1><br></br>
-            <input type="text" className="form-control" name="chatRoom" onChange={e => setChatRoom(e.target.value)} value={chatRoom} placeholder="Enter Room Name"/><br></br>
-            <input type="submit" className="btn btn-outline-dark" value="Join" />
-          </form>
+        <div>
+          <div id="navbar">
+            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleHome(e)}>Home</button>
+          </div>
+          <div id="joinRoom">
+            <form onSubmit={joinRoom}>
+              <h1>Join a Room</h1><br></br>
+              <input type="text" className="form-control" name="chatRoom" onChange={e => setChatRoom(e.target.value)} value={chatRoom} placeholder="Enter Room Name"/><br></br>
+              <input type="submit" className="btn btn-outline-dark" value="Join" />
+            </form>
+          </div>
         </div>
         :
         <div>
-          <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
+          <div id="navbar">
+            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
+            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleHome(e)}>Home</button>
+          </div>
           <div id="sendMessage">
             <form onSubmit={submitMessage}>
               <h1>{chatRoom}</h1><br></br>
@@ -126,7 +139,7 @@ function App() {
                       // </p>
                     ) 
                   }
-                  
+                  {/* <ScrollButton /> */}
                 <div id="scrollPoint">...</div>
               </div>
             </div>
