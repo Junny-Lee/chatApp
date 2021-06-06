@@ -10,6 +10,28 @@
   position: relative;
 }
 
+#navbar1 {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 90%;
+  position: absolute;
+  top: 6%;
+  button {
+    color: black;
+  }
+}
+
+#navbar2 {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 79%;
+  position: absolute;
+  top: 6%;
+  button {
+    color: black;
+  }
+}
+
 #setUserName, #joinRoom {
   border: 0.12rem solid black;
   border-radius: 10px;
@@ -111,7 +133,7 @@
 #chatBox {
   border: black 0.1rem solid;
   border-radius: 10px;
-  // width: 90%;
+  width: 70%;
   height: 65%;
   margin: auto;
   overflow: auto;
@@ -125,16 +147,36 @@
     height: auto;
 
     #message{
+      #you {
+        margin: 0px;
+        padding: 0px;
+        font-size: 70%;
+        text-align: right;
+        padding-right: 1%;
+      }
 
       #yourMessage {
-        background-color: #73b9ff;
+        background-color: #84c0fc;
+        color: white;
         border-radius: 11px;
-        // padding-left: 15%;
+        margin-left: 35%;
+        width: 65%;
+      }
+
+      #them {
+        margin: 0px;
+        padding: 0px;
+        font-size: 70%;
+        text-align: left;
+        padding-left: 1%;
       }
 
       #theirMessage {
-        background-color: rgb(235, 235, 235);
+        // background-color: rgb(235, 235, 235);
+        background-color: #cccfd4;
+        color: white;
         border-radius: 11px;
+        width: 65%;
       }
     }
 

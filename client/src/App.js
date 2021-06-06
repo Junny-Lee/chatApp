@@ -1,7 +1,6 @@
 import './App.scss';
 import io from 'socket.io-client';
 import { useState, useEffect } from 'react';
-// import ScrollButton from "./components/ScrollButton";
 
 function App() {
   const [socket] = useState(() => io(':8000'));
@@ -11,13 +10,6 @@ function App() {
   const [roomJoined, setRoomJoined] = useState(false);
   const [userName, setUserName] = useState('');
   const [nameSet, setNameSet] = useState(false);
-
-  // const yourMessage = {
-  //   backgroundColor: "blue"
-  // }
-  // const othersMessage = {
-  //   backgroundColor: "white"
-  // }
 
   useEffect(() => {
 
@@ -78,8 +70,8 @@ function App() {
         :
         !roomJoined ?
         <div>
-          <div id="navbar">
-            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleHome(e)}>Home</button>
+          <div id="navbar1">
+            <button type="button" className="btn btn-link" onClick={(e)=>handleHome(e)}>Back</button>
           </div>
           <div id="joinRoom">
             <form onSubmit={joinRoom}>
@@ -91,9 +83,9 @@ function App() {
         </div>
         :
         <div>
-          <div id="navbar">
-            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
-            <button type="button" className="btn btn-sm btn-warning" onClick={(e)=>handleHome(e)}>Home</button>
+          <div id="navbar2">
+            <button type="button" className="btn btn-link" onClick={(e)=>handleDeleteChatHistory(e)}>Clear Chat Room</button>
+            <button type="button" className="btn btn-link" onClick={(e)=>handleHome(e)}>Home</button>
           </div>
           <div id="sendMessage">
             <form onSubmit={submitMessage}>
@@ -112,46 +104,40 @@ function App() {
                       <p key={i} id="message">
                         {
                           message.userName == userName ?
-                          <p id="yourMessage">
-                            You: { message.message}
-                          </p> : 
-                          <p id="theirMessage">
-                            { message.userName } : { message.message}
-                          </p> 
+                          <p>
+                            <p id="you"> { message.userName } (you) </p>
+                            <p id="yourMessage">
+                              { message.message }
+                            </p>
+                          </p> :
+                          <p>
+                            <p id="them">{ message.userName } </p>
+                            <p id="theirMessage">
+                              { message.message }
+                            </p> 
+                          </p>
                         }
                       </p>
-                      // {
-                      //   message.userName == userName ?
-                      //   <p key={i} id="message" >
-                      //     You: { message.message}
-                      //   </p> :
-                      //   <p key={i} id="message">
-                      //     { message.userName } : { message.message}
-                      //   </p> 
-                      // }
-
                       // <p key={i} id="message">
                       //   {
                       //     message.userName == userName ?
-                      //     "You" : 
-                      //     message.userName
-                      //   } : { message.message}
+                      //     <p id="yourMessage">
+                      //       You: { message.message}
+                      //     </p> : 
+                      //     <p id="theirMessage">
+                      //       { message.userName } : { message.message}
+                      //     </p> 
+                      //   }
                       // </p>
                     ) 
                   }
-                  {/* <ScrollButton /> */}
+                <div id="scrollPoint">...</div>
                 <div id="scrollPoint">...</div>
               </div>
             </div>
           </div>
         </div>
       }
-
-      {/* <div id="messages">
-        {
-          chatLog.map((message, i) => <p key={i}>{message.userName}: {message.message}</p>)
-        }
-      </div> */}
     </div>
   );
 }
