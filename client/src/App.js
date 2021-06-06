@@ -118,17 +118,6 @@ function App() {
                           </p>
                         }
                       </p>
-                      // <p key={i} id="message">
-                      //   {
-                      //     message.userName == userName ?
-                      //     <p id="yourMessage">
-                      //       You: { message.message}
-                      //     </p> : 
-                      //     <p id="theirMessage">
-                      //       { message.userName } : { message.message}
-                      //     </p> 
-                      //   }
-                      // </p>
                     ) 
                   }
                 <div id="scrollPoint">...</div>
