@@ -62,7 +62,7 @@ function App() {
         !nameSet ?
         <div id="setUserName">
           <form onSubmit={submitUserName} id>
-            <h1>Welcome to Fast Chat</h1><br></br>
+            <h1>Welcome to FastChat</h1><br></br>
             <input type="text" className="form-control" name="userName" onChange={e => setUserName(e.target.value)} value={userName} placeholder="Enter a Username"/><br></br>
             <input type="submit" className="btn btn-outline-dark" value="Set Username" />
           </form>
@@ -89,9 +89,9 @@ function App() {
           </div>
           <div id="sendMessage">
             <form onSubmit={submitMessage}>
-              <h1>{chatRoom}</h1><br></br>
+              <h1>Room: {chatRoom}</h1><br></br>
               <div className="input-group mb-3">
-                <input type="text" className="form-control" name="message" onChange={e => setMessage(e.target.value) } value={message} placeholder="Message"/><br></br>
+                <input type="text" className="form-control" name="message" onChange={e => setMessage(e.target.value) } value={message} placeholder="Write a message..."/><br></br>
                 <div className="input-group-append">
                   <input type="submit"className="btn btn-outline-dark" value="Send" onClick={updateScroll}/>
                 </div>
